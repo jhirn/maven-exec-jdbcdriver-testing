@@ -4,7 +4,12 @@ After boiling it down, I was able to recreate this issue even without the maven-
 
 To see the problem, simply git the source and run `mvn compile`.
 
-As I mentioned, if you run the maven-sql-plugin prior to the maven-exec, the h2 driver will not be loaded either. I will work on putting the second scenario into a profile so it can be demonstrated as well. 
+As I mentioned, if you run the maven-sql-plugin prior to the maven-exec, the h2 driver will not be loaded either. I've added the profiles to demonstrate this. You can see it by running:
+
+mvn compile -Pexec-then-sql
+mvn compile -Psql-then-exec
+
+You will notice that exec-then-sql will print out two drivers and sql-then-exec will only print out one. 
 
 I'm not sure if this is a defect in the maven-exec, maven or if it's a werid jdbc driver thing that's somehow normal.  I figured I'd put it up here incase someone felt like looking at it. I'd love to hear what's going on and would be more than willing to assist with patching but want to confirm I'm not just going crazy. 
 
