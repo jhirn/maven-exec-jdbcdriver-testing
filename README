@@ -1,0 +1,5 @@
+This project demonstrates a problem I experienced today with the maven-sql-plugin unloading jdbc drivers after execution. I have successfully used dbunit-plugin after maven-sql-plugin but moved to using the maven-exec plugin for programatic execution of dbunit after using Gunnar Morling excellent Scriptable Dataset adapter for dynamic values via Groovy. See more about the Scriptable Dataset here: http://github.com/gunnarmorling/scriptable-dataset
+
+To see the problem, simply download the source and run.. 
+
+I am using Maven 2.2.1 and maven-sql-plugin 1.3. 
