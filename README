@@ -13,4 +13,4 @@ You will notice that exec-then-sql will print out two drivers and sql-then-exec 
 
 I'm not sure if this is a defect in the maven-exec, maven or if it's a werid jdbc driver thing that's somehow normal.  I figured I'd put it up here incase someone felt like looking at it. I'd love to hear what's going on and would be more than willing to assist with patching but want to confirm I'm not just going crazy. 
 
-I am using Maven 2.2.1
+I am using Maven 2.2.1. The problem originally happend with the Oracle driver but I moved to h2 since it recreates the problem just the same.
