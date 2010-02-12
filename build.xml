@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ====================================================================== -->
+<!-- Ant build file (http://ant.apache.org/) for Ant 1.6.2 or above.        -->
+<!-- ====================================================================== -->
+
+<project name="sql-dbunit-conundrum" default="package" basedir=".">
+
+  <!-- ====================================================================== -->
+  <!-- Import maven-build.xml into the current project                        -->
+  <!-- ====================================================================== -->
+
+  <import file="maven-build.xml"/>
+  
+  <!-- ====================================================================== -->
+  <!-- Help target                                                            -->
+  <!-- ====================================================================== -->
+
+  <target name="help">
+    <echo message="Please run: $ant -projecthelp"/>
+  </target>
+	
+	<target name="execute-main">
+		
+		<java classname="com.hirn.DbUnitRunner">
+		<classpath>
+      <path refid="build.classpath"/>
+      <pathelement location="${maven.build.outputDir}"/>
+    </classpath>
+		</java>
+		<java classname="com.hirn.DbUnitRunner">
+				<classpath>
+		      <path refid="build.classpath"/>
+		      <pathelement location="${maven.build.outputDir}"/>
+		    </classpath>
+				</java>
+	</target>
+	
+	<target name="execute-main-forked">
+			
+			<java classname="com.hirn.DbUnitRunner">
+			<classpath>
+	      <path refid="build.classpath"/>
+	      <pathelement location="${maven.build.outputDir}"/>
+	    </classpath>
+			</java>
+			<java classname="com.hirn.DbUnitRunner" fork="true">
+					<classpath>
+			      <path refid="build.classpath"/>
+			      <pathelement location="${maven.build.outputDir}"/>
+			    </classpath>
+					</java>
+		</target>
+
+
+</project>
