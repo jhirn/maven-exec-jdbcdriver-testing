@@ -1,11 +1,22 @@
+**Update 2/12/2010 (15 minutes later)**
+
+Created an ant build file which recreates the problem all the same (thanks mvn ant:ant). So Maven is off the hook although exec:java should allow you to fork the JVM. Forking the JVM in ant resolves the problem. 
+
+The following ant targets are of interest:
+
+ant
+ant execute-main
+ant execute-main-forked
+
+I think this is more ClassLoader issues than anyone should have to deal with. =( 
+
 **Update 2/12/2010**
 
 So the problem gets a little more weird. It turns out that the 2nd call to DriverManager.getDrivers() will also create this issue. 
 
 Time to try a build.xml, I might be able to rule Maven out of this one. Even if it means touching Ant again =(. 
-******************
 
-
+**Original Read Me**
 
 This project demonstrates a problem I experienced today when trying to use the maven-exec plugin after executing the maven-sql-plugin. What seemed to be happening was that maven-sql-plugin was unloading jdbc drivers after execution. I have successfully used dbunit-plugin after maven-sql-plugin but moved to using the maven-exec plugin for programatic execution of dbunit after using Gunnar Morling excellent Scriptable Dataset adapter for dynamic values via Groovy. (See more about the Scriptable Dataset here: http://github.com/gunnarmorling/scriptable-dataset).
 
