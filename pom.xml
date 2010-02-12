@@ -18,6 +18,7 @@
 					<plugin>
 						<groupId>org.codehaus.mojo</groupId>
 						<artifactId>exec-maven-plugin</artifactId>
+						<version>1.1.1</version>
 						<executions>
 							<execution>
 								<id>has-both</id>
@@ -26,6 +27,7 @@
 									<goal>java</goal>
 								</goals>
 								<configuration>
+									<cleanupDaemonThreads>true</cleanupDaemonThreads>
 									<mainClass>com.hirn.DbUnitRunner
 							</mainClass>
 								</configuration>
@@ -37,8 +39,8 @@
 									<goal>java</goal>
 								</goals>
 								<configuration>
-									<mainClass>com.hirn.DbUnitRunner
-							</mainClass>
+									<cleanupDaemonThreads>true</cleanupDaemonThreads>
+									<mainClass>com.hirn.DbUnitRunner</mainClass>
 								</configuration>
 							</execution>
 						</executions>
@@ -105,7 +107,8 @@
 					</plugin>
 				</plugins>
 			</build>
-		</profile><profile>
+		</profile>
+		<profile>
 			<id>exec-then-sql</id>
 			<activation>
 				<activeByDefault>false</activeByDefault>
